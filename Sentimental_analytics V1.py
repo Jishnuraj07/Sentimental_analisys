@@ -4,12 +4,12 @@ import matplotlib.pyplot as plt
 
 def percentage(part,whole):
 	return 100*float(part)/float(whole)
-
-consumerkey =""
-consumerSecert =""
-accesstoken =""
-accessTokenSecret =""
-
+#Enter key from twitter developer account
+consumerkey =" "
+consumerSecert =" "
+accesstoken =" "
+accessTokenSecret =" "
+#authorisation and access
 auth = tweepy.OAuthHandler(consumer_key = consumerkey, consumer_secret = consumerSecert)
 auth.set_access_token(accesstoken,accessTokenSecret)
 api = tweepy.API(auth)
@@ -25,9 +25,7 @@ neutral = 0
 polarity = 0
 
 for tweet in tweets:
-        #print(tweet.text)
-        #u=tweet.text
-        #u=u.encode('unicode-escape').decode('utf-8')
+        
         analysis = TextBlob(tweet.text)
         polarity += analysis.sentiment.polarity
 
